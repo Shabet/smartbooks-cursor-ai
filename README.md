@@ -1,0 +1,1 @@
+# smartbooks-cursor-ai
