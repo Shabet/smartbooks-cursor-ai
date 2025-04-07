@@ -1,0 +1,132 @@
+{
+  "survey_title": "식당 이용 후기 설문지",
+  "description": "고객님의 소중한 의견을 들려주시면 더 나은 서비스로 보답하겠습니다.",
+  "questions": [
+    {
+      "id": 1,
+      "type": "rating",
+      "question": "전반적인 식사 경험에 대해 만족하셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 2,
+      "type": "rating",
+      "question": "음식의 맛은 어떠셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 3,
+      "type": "rating",
+      "question": "음식의 양은 적당하셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 4,
+      "type": "rating",
+      "question": "직원들의 서비스는 어떠셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 5,
+      "type": "rating",
+      "question": "식당의 청결도는 어떠셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 6,
+      "type": "rating",
+      "question": "가격 대비 만족도는 어떠셨나요?",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "labels": {
+        "1": "매우 불만족",
+        "2": "불만족",
+        "3": "보통",
+        "4": "만족",
+        "5": "매우 만족"
+      }
+    },
+    {
+      "id": 7,
+      "type": "multiple_choice",
+      "question": "이번 방문에서 주문하신 메뉴는 무엇이었나요?",
+      "options": [
+        "메인 메뉴",
+        "사이드 메뉴",
+        "음료",
+        "디저트"
+      ],
+      "required": true,
+      "multiple_selection": true
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "question": "특별히 좋았던 점이 있다면 알려주세요.",
+      "required": false
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "question": "개선이 필요한 점이 있다면 알려주세요.",
+      "required": false
+    },
+    {
+      "id": 10,
+      "type": "yes_no",
+      "question": "다시 방문하실 의향이 있으신가요?",
+      "required": true
+    }
+  ],
+  "metadata": {
+    "created_at": "2024-03-21",
+    "version": "1.0",
+    "language": "ko"
+  }
+} 
