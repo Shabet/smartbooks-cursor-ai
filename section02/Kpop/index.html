@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-pop 소개</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: relative;
+        }
+        .glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        .nav-link:hover::after {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 네비게이션 바 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-dark text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="대한민국 국기" class="w-8 h-8 mr-2">
+                    <span>World Pop</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="K-pop" class="w-6 h-6 mr-2">
+                        K-pop
+                    </a>
+                    <a href="us-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="US Pop" class="w-6 h-6 mr-2">
+                        US Pop
+                    </a>
+                    <a href="uk-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK Pop" class="w-6 h-6 mr-2">
+                        UK Pop
+                    </a>
+                    <a href="j-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg" alt="J-pop" class="w-6 h-6 mr-2">
+                        J-pop
+                    </a>
+                    <a href="latin-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Conga_drum.jpg/1200px-Conga_drum.jpg" alt="Latin Pop" class="w-6 h-6 mr-2">
+                        Latin Pop
+                    </a>
+                </div>
+                <!-- 모바일 메뉴 버튼 -->
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 배경 패턴 -->
+    <div class="fixed inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg')] bg-center bg-no-repeat bg-contain opacity-10"></div>
+
+    <!-- 헤더 -->
+    <header class="relative glass-dark text-white py-16 shadow-lg animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="대한민국 국기" class="w-24 h-24 mb-6 animate-on-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll">K-pop의 세계</h1>
+                <p class="text-xl text-center text-white/90 animate-on-scroll">한국의 대중음악을 소개합니다</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 relative">
+        <!-- K-pop 소개 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 transform transition duration-500 hover:scale-[1.02] animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/30 pb-4">K-pop이란?</h2>
+            <p class="text-white leading-relaxed mb-4">
+                K-pop은 한국의 대중음악을 의미하며, 전 세계적으로 큰 인기를 끌고 있는 음악 장르입니다. 
+                뛰어난 퍼포먼스, 세련된 비주얼, 그리고 다양한 장르의 음악이 특징입니다.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">K-pop의 역사</h3>
+                    <ul class="text-white/90 space-y-2">
+                        <li>• 2000년대: 원더걸스, 소녀시대 등이 해외 진출</li>
+                        <li>• 2010년대: BTS, BLACKPINK 등 글로벌 스타 등장</li>
+                        <li>• 2020년대: 글로벌 차트 석권과 새로운 시도</li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">주요 특징</h3>
+                    <ul class="text-white/90 space-y-2">
+                        <li>• 정교한 군무와 퍼포먼스</li>
+                        <li>• 세련된 뮤직비디오</li>
+                        <li>• 글로벌 팬덤 문화</li>
+                        <li>• 다양한 음악 장르의 융합</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 최신 뉴스 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-white/30 pb-4">최신 K-pop 소식</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-white mb-3">BTS, 2025년 완전체 컴백 예정</h3>
+                    <p class="text-white/90">BTS가 2025년에 완전체로 컴백할 예정이며, 현재 멤버들이 군 복무를 마치고 있다. 팬들은 그룹 채팅방에서 재결합을 기대하며 기쁨을 나누고 있다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s">
+                    <h3 class="text-xl font-bold text-white mb-3">BLACKPINK, 월드투어 성공적 마무리</h3>
+                    <p class="text-white/90">BLACKPINK가 전 세계를 돌며 성공적인 월드투어를 마무리했다. 특히 제니의 퍼포먼스가 화제가 되며 글로벌 팬들의 열광적인 반응을 이끌어냈다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.4s">
+                    <h3 class="text-xl font-bold text-white mb-3">K-pop의 새로운 시도</h3>
+                    <p class="text-white/90">2020년대 들어 K-pop은 영어 가사 사용 증가, 다양한 장르 실험 등 새로운 시도를 하고 있다. 특히 BTS의 'Dynamite', 'Butter' 등이 글로벌 차트에서 성공을 거두었다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.6s">
+                    <h3 class="text-xl font-bold text-white mb-3">K-pop의 사회적 영향</h3>
+                    <p class="text-white/90">K-pop이 일종의 민중가요로서 기능하는 모습이 포착되고 있다. 시위 현장에서 K-pop 음악이 재생되며, 팬덤의 응원봉이 등장하는 등 새로운 문화적 현상이 나타나고 있다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 아티스트 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-white/30 pb-4">대표적인 K-pop 아티스트</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- BTS 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="BTS" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">BTS</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">세계적인 인기를 끌고 있는 7인조 보이그룹, 2025년 완전체 컴백 예정</p>
+                    </div>
+                </div>
+
+                <!-- BLACKPINK 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="BLACKPINK" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">BLACKPINK</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">강렬한 비주얼과 퍼포먼스로 인기, 성공적인 월드투어 마무리</p>
+                    </div>
+                </div>
+
+                <!-- TWICE 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.4s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="TWICE" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">TWICE</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">밝고 청량한 음악으로 사랑받는 걸그룹, 글로벌 팬덤 확장 중</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 특징 섹션 -->
+        <section class="glass rounded-2xl p-8 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-white/30 pb-4">K-pop의 특징</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-white mb-3">정교한 댄스 퍼포먼스</h3>
+                    <p class="text-white/90">동기화된 그룹 댄스와 정교한 안무가 특징이며, 이는 K-pop의 핵심 요소 중 하나입니다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s">
+                    <h3 class="text-xl font-bold text-white mb-3">다양한 음악 스타일</h3>
+                    <p class="text-white/90">팝, 힙합, R&B, EDM 등 다양한 장르의 음악을 융합하여 새로운 사운드를 만들어냅니다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.4s">
+                    <h3 class="text-xl font-bold text-white mb-3">세련된 비주얼과 패션</h3>
+                    <p class="text-white/90">트렌디한 패션과 뮤직비디오, 그리고 아티스트들의 비주얼이 중요한 요소입니다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.6s">
+                    <h3 class="text-xl font-bold text-white mb-3">글로벌 팬덤 문화</h3>
+                    <p class="text-white/90">전 세계적인 팬 커뮤니티가 형성되어 있으며, 소셜 미디어를 통한 팬과의 소통이 활발합니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-dark text-white py-12 mt-16 animate-on-scroll">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white/90">&copy; 2024 K-pop 소개 페이지. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>    

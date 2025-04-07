@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Pop 소개</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 1s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: relative;
+        }
+        .glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        .nav-link:hover::after {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 네비게이션 바 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-dark text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="영국 국기" class="w-8 h-8 mr-2">
+                    <span>World Pop</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="K-pop" class="w-6 h-6 mr-2">
+                        K-pop
+                    </a>
+                    <a href="us-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="US Pop" class="w-6 h-6 mr-2">
+                        US Pop
+                    </a>
+                    <a href="uk-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="UK Pop" class="w-6 h-6 mr-2">
+                        UK Pop
+                    </a>
+                    <a href="j-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg" alt="J-pop" class="w-6 h-6 mr-2">
+                        J-pop
+                    </a>
+                    <a href="latin-pop.html" class="nav-link flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Conga_drum.jpg/1200px-Conga_drum.jpg" alt="Latin Pop" class="w-6 h-6 mr-2">
+                        Latin Pop
+                    </a>
+                </div>
+                <!-- 모바일 메뉴 버튼 -->
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 배경 패턴 -->
+    <div class="fixed inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg')] bg-center bg-no-repeat bg-contain opacity-10"></div>
+
+    <!-- 헤더 -->
+    <header class="relative glass-dark text-white py-16 shadow-lg animate-on-scroll">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="영국 국기" class="w-24 h-24 mb-6 animate-on-scroll">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll">UK Pop의 세계</h1>
+                <p class="text-xl text-center text-white/90 animate-on-scroll">영국의 대중음악을 소개합니다</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 relative">
+        <!-- UK Pop 소개 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 transform transition duration-500 hover:scale-[1.02] animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/30 pb-4">UK Pop이란?</h2>
+            <p class="text-white leading-relaxed mb-4">
+                UK Pop은 영국의 대중음악을 의미하며, 전 세계적으로 큰 영향력을 미치고 있는 음악 장르입니다. 
+                독특한 사운드와 실험적인 접근이 특징이며, 전통적인 록과 현대적인 팝이 융합된 형태를 보여줍니다.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">UK Pop의 역사</h3>
+                    <ul class="text-white/90 space-y-2">
+                        <li>• 1960년대: 비틀즈와 브리티시 인베이전</li>
+                        <li>• 1970-80년대: 펑크와 뉴웨이브</li>
+                        <li>• 1990년대: 브릿팝과 인디 음악</li>
+                        <li>• 2000년대 이후: 글로벌 팝의 중심</li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-3">주요 특징</h3>
+                    <ul class="text-white/90 space-y-2">
+                        <li>• 독특한 영국적 사운드</li>
+                        <li>• 실험적인 음악적 접근</li>
+                        <li>• 강한 뮤지션 정체성</li>
+                        <li>• 글로벌 음악 시장 영향력</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 최신 뉴스 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-white/30 pb-4">최신 UK Pop 소식</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll">
+                    <h3 class="text-xl font-bold text-white mb-3">아델, 새로운 앨범 발매</h3>
+                    <p class="text-white/90">아델이 새로운 앨범을 발매하며 전 세계 차트를 석권하고 있다. 특히 이번 앨범은 그녀의 음악적 성장을 보여주는 작품으로 평가받고 있다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s">
+                    <h3 class="text-xl font-bold text-white mb-3">해리 스타일스, 월드투어 성공적 마무리</h3>
+                    <p class="text-white/90">해리 스타일스가 전 세계를 돌며 성공적인 월드투어를 마무리했다. 특히 그의 퍼포먼스와 무대 연출이 화제가 되며 글로벌 팬들의 열광적인 반응을 이끌어냈다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.4s">
+                    <h3 class="text-xl font-bold text-white mb-3">UK Pop의 새로운 트렌드</h3>
+                    <p class="text-white/90">최근 UK Pop은 다양한 장르 실험과 함께 소셜 미디어를 활용한 새로운 마케팅 전략을 펼치고 있다. 특히 인스타그램을 통한 음악 홍보가 새로운 트렌드로 자리잡고 있다.</p>
+                </div>
+                <div class="glass-card rounded-xl p-6 transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.6s">
+                    <h3 class="text-xl font-bold text-white mb-3">UK Pop의 글로벌 영향력</h3>
+                    <p class="text-white/90">UK Pop은 전 세계 음악 시장에 큰 영향을 미치고 있다. 특히 미국, 아시아 시장에서도 큰 인기를 끌며 글로벌 음악 시장의 중심으로 자리잡고 있다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 아티스트 섹션 -->
+        <section class="glass rounded-2xl p-8 mb-8 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-white mb-8 border-b-2 border-white/30 pb-4">대표적인 UK Pop 아티스트</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 아델 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="Adele" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">Adele</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">세계적인 인기를 끌고 있는 싱어송라이터, 최근 새로운 앨범 발매</p>
+                    </div>
+                </div>
+
+                <!-- 해리 스타일스 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="Harry Styles" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">Harry Styles</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">Harry's House로 새로운 사운드 선보인 전설적인 아티스트</p>
+                    </div>
+                </div>
+
+                <!-- 에드 시런 카드 -->
+                <div class="group glass-card rounded-xl overflow-hidden transform transition duration-500 hover:scale-105 animate-on-scroll" style="animation-delay: 0.4s">
+                    <div class="relative overflow-hidden">
+                        <img src="https://via.placeholder.com/400x300" alt="Ed Sheeran" class="w-full h-64 object-cover transform transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-0 left-0 right-0 p-4 text-white text-2xl font-bold">Ed Sheeran</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-white/90">Subtract로 새로운 음악적 도전을 선보인 싱어송라이터</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 스크롤 애니메이션
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html> 
